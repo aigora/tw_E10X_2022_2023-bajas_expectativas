@@ -16,7 +16,7 @@ int main()
 		case 2:
 		    break; 	
 		default: 
-		    printf("Número no válido, vuelva a ejecutar el progama");// no se poner para que vuelva al inicio    
+		    printf("Número no válido, vuelva a poner el progama");// no se poner para que vuelva al inicio    
 	}
 }
 
