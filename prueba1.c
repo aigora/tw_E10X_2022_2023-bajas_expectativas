@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <math.h>
-
+#include <locale.h>
 int main()
 {
+	setlocale(LC_CTYPE,"spanish");
 	int paso1;
 	int paso;
 	printf("TITULO \n");
