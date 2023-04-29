@@ -80,7 +80,7 @@ int main()
 			}
 		    break; 	
 		default: 
-		    printf("Número no válido, vuelva a ejecutar el progama");// no se poner para que vuelva a preguntar lo mismo otra vez    
+		    printf("Número no válido, vuelva a ejecutar el progamaaa");// no se poner para que vuelva a preguntar lo mismo otra vez    
 	}
 }
 
