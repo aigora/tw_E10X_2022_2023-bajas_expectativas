@@ -79,12 +79,8 @@ int main()
 				printf("Número no válido, vuelva a ejecutar el progama");
 			}
 		    break; 	
-		default: 
-<<<<<<< HEAD
-		    printf("Número no válido, vuelva a ejecutar el progamaaa");// no se poner para que vuelva a preguntar lo mismo otra vez    
-=======
+		default:       
 		    printf("Número no válido, vuelva a ejecutar el progama");// no se poner para que vuelva a preguntar lo mismo otra vez.    
->>>>>>> 9f2e24c09f7dd0c3610f1d7d119ee2aef19a2b66
 	}
 }
 
