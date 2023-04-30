@@ -45,7 +45,7 @@ int main()
             float generacion_total[N];
             int i = 0;
             // Abrir el archivo de lectura
-            plectura = fopen("aranjuez.csv", "r");
+            plectura = fopen("aranjuez.csv", "r"); //Alba no se abrir el fichero osea poner el nombre no lo se poner 
 			
 			if (plectura == NULL)
 			{
@@ -53,12 +53,14 @@ int main()
 			  }
 			   else
 			   {
-			   	for (i = 0; i < N, i++);
+			   	for (i = 0; i < N; i++);
 			    {
 			    	fsccanf(plectura, "%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f", &hidraulica[i], &turbinacion_bombeo[i], &nuclear[i], &carbon[i], &fuel_y_gas[i], &motores_diesel[i], &turbina_de_gas[i], &turbina_de_vapor[i], &ciclo_combinado[i], &hidroeolica[i], &eolica[i], &solar_fotovoltaica[i], &solar_termica[i], &otras_renovables[i], &congeneracion[i], &residuos_no_renobables[i], &residuos_renovables[i], &generacion_total[i]);
 				}
 				// Se ha terminado de leer, luego se cierra el archivo
                 fclose(plectura);
+            }
+             
 			printf("Indique qué operación desea realizar: 1-Mostrar y cambiar datos \t 2-Estadística \n");
 			scanf("%i", &operacion1);
 			if(operacion1==1)
@@ -121,4 +123,5 @@ int main()
 		    printf("Número no válido, vuelva a ejecutar el progama");// no se poner para que vuelva a preguntar lo mismo otra vez.    
 	}
 }
+
 
