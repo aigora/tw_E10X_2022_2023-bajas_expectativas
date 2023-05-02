@@ -14,6 +14,7 @@ int main()
 	int operacion1;
 	int operacion2;
 	printf("GENERACIÓN DE ENERGÍAS \n");
+	printf("Este programa le permitira conocer, comparar, modificar u operar con los datos de la generacion de electricidad,\n mediante todos los tipos de energias en España durante los años de 2021 y 2022 (Gwh)\n\n");
 	printf("Indique 1 si quiere hacer una consulta individual o 2 si quiere hacer una comparativa \n");
 	scanf("%i", &paso1);
 	switch(paso1)
@@ -45,27 +46,68 @@ int main()
             float generacion_total[N];
             int i = 0;
             // Abrir el archivo de lectura
-            plectura = fopen("aranjuez.csv", "r"); //Alba no se abrir el fichero osea poner el nombre no lo se poner 
+            plectura = fopen("C:/Users/Pc/Documents/GitHub/tw_E10X_2022_2023-bajas_expectativas/generacion_por_tecnologias_21_22.csv", "r"); //con esta direccion deberia de poder abrirsenos bien el archivo en todos los portatiles  
 			
 			if (plectura == NULL)
 			{
 			 printf("ERROR AL ABRIR EL FICHERO DE LECTURA");
+			 return-1;
 			  }
-			   else
-			   {
-			   	for (i = 0; i < N; i++);
+			  
+			else
+			{
+			  	for (i = 0; i < N; i++);
 			    {
-			    	fsccanf(plectura, "%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f", &hidraulica[i], &turbinacion_bombeo[i], &nuclear[i], &carbon[i], &fuel_y_gas[i], &motores_diesel[i], &turbina_de_gas[i], &turbina_de_vapor[i], &ciclo_combinado[i], &hidroeolica[i], &eolica[i], &solar_fotovoltaica[i], &solar_termica[i], &otras_renovables[i], &congeneracion[i], &residuos_no_renobables[i], &residuos_renovables[i], &generacion_total[i]);
+			    	fscanf(plectura, "%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f", &hidraulica[i], &turbinacion_bombeo[i], &nuclear[i], &carbon[i], &fuel_y_gas[i], &motores_diesel[i], &turbina_de_gas[i], &turbina_de_vapor[i], &ciclo_combinado[i], &hidroeolica[i], &eolica[i], &solar_fotovoltaica[i], &solar_termica[i], &otras_renovables[i], &congeneracion[i], &residuos_no_renobables[i], &residuos_renovables[i], &generacion_total[i]);
 				}
 				// Se ha terminado de leer, luego se cierra el archivo
-                fclose(plectura);
+                //fclose(plectura);    //creo q no hay que cerrarlo, por eso lo pongo como en comentario -aurora
             }
              
-			printf("Indique qué operación desea realizar: 1-Mostrar y cambiar datos \t 2-Estadística \n");
+			printf("Indique qué operación desea realizar:\t 1-Mostrar y cambiar datos \t 2-Estadística \n");
 			scanf("%i", &operacion1);
 			if(operacion1==1)
 			{
-				//aquí también hay que meter algo relacionado con los ficheros
+				pescritura=  fopen ("C:/Users/Pc/Documents/GitHub/tw_E10X_2022_2023-bajas_expectativas/generacion_por_tecnologias_21_22_escritura.csv", "w");
+
+					if (pescritura == NULL)
+					{
+					printf("Error al abrir el fichero.\n");
+					return -1;
+					}
+					
+					else
+					{
+						printf("Se le permitirá cambiar un dato de generacion:\n");
+						int energia_modificar;
+						int anyo;
+						int mes;
+						int posicion;
+						while ((anyo!=1)&& (anyo!=2)) //aunq con esto evite que se joda el programa si no mete uno de esos dos datos se jode todo en cuanto nos metan un char
+						{
+						printf("¿A qué año pertenece esa generacion? 1- si es del 2021, 2- si es del 2022\n");
+						scanf("%i", &anyo);
+						}
+							if(anyo==1)
+							{
+								posicion=posicion;
+							}
+							
+							if(anyo==2)
+							{
+								posicion=12;
+							}
+						
+						while ((mes!=1)&&(mes!=2)&&(mes!=3)&&(mes!=4)&&(mes!=5)&&(mes!=6)&&(mes!=7)&&(mes!=8)&&(mes!=9)&&(mes!=10)&&(mes!=11)&&(mes!=12)) //seguro que hay una forma mas facil de ponerlo pero no se me ocurre	
+						{
+						printf("Escriba el numero del mes al que corresponda el dato a modificar:\n");
+						scanf("%i", &mes);
+						}
+						posicion=posicion+mes; //ahora que ya tenemos la posicion solo hay que ir al vector de la energia (energia_modificar) en la posición (posicion) que sea y decirle que esciba algo y ponerlo -aurora
+					}
+				
+					
+					//aquí también hay que meter algo relacionado con los ficheros
 			}
 			else if(operacion1==2)
 			{
