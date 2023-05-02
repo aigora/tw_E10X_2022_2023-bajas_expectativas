@@ -1,7 +1,22 @@
 #include <stdio.h>
 #include <math.h>
 #include <locale.h>
-#define N 2898
+#define N 24
+#define I 18 // Soy alba, he estado 3 horas, no he hecho casi nada pero he llegado a la conclusion de que no entiendo ni la mitad de tres cuartos y que nos hemos organizado mal, mañana hablo por el grupo para ver si alguien opina lo mismo.
+//N seria 24 en vez de 2898 porque solo tenemos 24 fechas
+//Es mas facil hacer un vector de estructura para cada energia con vectores, vector mostrar es para guardar en cada posicion los años, variable media para calcular esa estadistica, y lo que veais que necsitemos de cada energia ponerlo ahi.
+
+typedef struct
+{
+float mostrar[N];
+float media;
+float max;
+float min;
+float moda;
+float mediana; 
+} tipoenergia[I];
+
+
 int main()
 {
 	setlocale(LC_CTYPE,"spanish");// esto es para poner tildes
@@ -15,35 +30,23 @@ int main()
 	int operacion2;
 	printf("GENERACIÓN DE ENERGÍAS \n");
 	printf("Este programa le permitira conocer, comparar, modificar u operar con los datos de la generacion de electricidad,\n mediante todos los tipos de energias en España durante los años de 2021 y 2022 (Gwh)\n\n");
+	do
+	{		
 	printf("Indique 1 si quiere hacer una consulta individual o 2 si quiere hacer una comparativa \n");
 	scanf("%i", &paso1);
+	} while((paso1<1)||(paso1>2));
 	switch(paso1)
 	{
 		case 1:
+			do
+			{
 			printf("Indique la energía a consultar: \n 1-Hidráulica \n 2-Turbinación bombeo \n 3-Nuclear \n 4-Carbón \n 5-Fuel + Gas \n 6-Motores diésel \n 7-Turbina de gas \n 8-Turbina de vapor \n 9-Ciclo combinado \n 10-Hidroeólica \n 11-Eólica \n 12-Solar fotovoltaica \n 13-Solar térmica \n 14-Otras renovables \n 15-Congeneración \n 16-Residuos no renovables \n 17-Residuos renovables \n 18-Generación total \n");
 			scanf("%i", &energia1);
+			}while((energia1<1)||(energia1>18));
+			int tip = energia1 - 1;
 			//creo que aquí hay que meter los ficheros
 			FILE *plectura;
             FILE *pescritura;
-            // Defino un vector para cada variable a leer del fichero	
-            float hidraulica[N];
-            float turbinacion_bombeo[N];
-            float nuclear[N];
-            float carbon[N];
-            float fuel_y_gas[N];
-            float motores_diesel[N];
-            float turbina_de_gas[N];
-            float turbina_de_vapor[N];
-            float ciclo_combinado[N];
-            float hidroeolica[N];
-            float eolica[N];
-            float solar_fotovoltaica[N];
-            float solar_termica[N];
-            float otras_renovables[N];
-            float congeneracion[N];
-            float residuos_no_renobables[N];
-            float residuos_renovables[N];
-            float generacion_total[N];
             int i = 0;
             // Abrir el archivo de lectura
             plectura = fopen("C:/Users/Pc/Documents/GitHub/tw_E10X_2022_2023-bajas_expectativas/generacion_por_tecnologias_21_22.csv", "r"); //con esta direccion deberia de poder abrirsenos bien el archivo en todos los portatiles  
@@ -58,14 +61,17 @@ int main()
 			{
 			  	for (i = 0; i < N; i++);
 			    {
-			    	fscanf(plectura, "%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f", &hidraulica[i], &turbinacion_bombeo[i], &nuclear[i], &carbon[i], &fuel_y_gas[i], &motores_diesel[i], &turbina_de_gas[i], &turbina_de_vapor[i], &ciclo_combinado[i], &hidroeolica[i], &eolica[i], &solar_fotovoltaica[i], &solar_termica[i], &otras_renovables[i], &congeneracion[i], &residuos_no_renobables[i], &residuos_renovables[i], &generacion_total[i]);
+			    	fscanf(plectura, "Título,ESTRUCTURA DE LA GENERACIÓN POR TECNOLOGÍAS_01-01-2021_31-12-2022...%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f", tipoenergia[tip].mostrar[0], .... );
 				}
+				//Aqui creo que deberiamos pasar toda la informacion a otro fichero más facil de leer porque aqui hay que escribir mucho fijandonos que todo este bien, lo hablamos en clase.
 				// Se ha terminado de leer, luego se cierra el archivo
-                //fclose(plectura);    //creo q no hay que cerrarlo, por eso lo pongo como en comentario -aurora
+                fclose(plectura);    //si hay que cerrarlo porque ya hemos leido toda la info que queriamos
             }
-             
+            do
+			{
 			printf("Indique qué operación desea realizar:\t 1-Mostrar y cambiar datos \t 2-Estadística \n");
 			scanf("%i", &operacion1);
+			} while ((operacion1<1)||(operacion1>2))
 			if(operacion1==1)
 			{
 				pescritura=  fopen ("C:/Users/Pc/Documents/GitHub/tw_E10X_2022_2023-bajas_expectativas/generacion_por_tecnologias_21_22_escritura.csv", "w");
@@ -78,11 +84,17 @@ int main()
 					
 					else
 					{
+						int energia_modificar; //lo de energia para que es, si la energia ya la hemos seleccionado antes.
+						int anyo; 
+						int mes; 
+						int posicion; //Tamp entiendo para que sirve esto
+						do
+						{
 						printf("Se le permitirá cambiar un dato de generacion:\n");
-						int energia_modificar;
-						int anyo;
-						int mes;
-						int posicion;
+						scanf("%i", &mes);
+						scanf("%i", &anyo);
+						}while((mes<1)||(mes>12)||(anyo<2021)||(anyo>2022)); //me estoy rayando muchisimo con los de las posiciones con el while ese de despues, en plan wtf, creo que es mas facil con el scanf de arriba, lo hablamos y ponemos la que mejor veamos, ademas creo que no se ejecutaria ninguno de los while siguientes
+						
 						while ((anyo!=1)&& (anyo!=2)) //aunq con esto evite que se joda el programa si no mete uno de esos dos datos se jode todo en cuanto nos metan un char
 						{
 						printf("¿A qué año pertenece esa generacion? 1- si es del 2021, 2- si es del 2022\n");
@@ -112,7 +124,7 @@ int main()
 			else if(operacion1==2)
 			{
 				printf("Indique que tipo de operación estadística desea realizar: \n 1-Indicar el máximo \n 2-Indicar el minímo \n 3-Indicar la moda \n 4-Indicar la mediana \n 5-Realizar la media \n");//máx,mín,moda de qué exactamente?
-				scanf("%i", &operacion2);
+				scanf("%i", &operacion2); //creo que aqui sobran cosas de estadistica, y tamb creo que todo esto tendriamos que calcularlo al principio y leer el fichero tamb al principio antes de todo el menu y todo.
 				if(operacion2==1)
 				{
 					//para indicar el máx hay que haber puesto el fichero
@@ -140,7 +152,7 @@ int main()
 			}
 			break;
 		case 2:
-			printf("Indique si quiere comparar 2 o 3 energías \n"); //podemos poner más pero vamos a empezar por 2 o 3
+			printf("Indique si quiere comparar 2 o 3 energías \n"); //podemos poner más pero vamos a empezar por 2 o 3 //A mi me parece una barbaridad comparar 3
 			scanf("%i", &comparar);
 			if(comparar==2)
 			{
