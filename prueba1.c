@@ -152,7 +152,11 @@ int main()
 			}
 			break;
 		case 2:
+<<<<<<< HEAD
 			printf("Indique si quiere comparar 2 o 3 energías \n"); //podemos poner más pero vamos a empezar por 2 o 3 //A mi me parece una barbaridad comparar 3
+=======
+			printf("Indique si quiere comparar 2 o 3 energías \n"); //podemos poner más pero vamos a empezar por 2 o 3.
+>>>>>>> 0751176bd272108d1e68804a8b6bd25e6aaf3307
 			scanf("%i", &comparar);
 			if(comparar==2)
 			{
