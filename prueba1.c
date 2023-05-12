@@ -1,24 +1,22 @@
 #include <stdio.h>
 #include <math.h>
 #include <locale.h>
-#define N 24
-#define I 18 
 
 typedef struct
 {
-float anyo[N];
+float anyo[24];
 float media;
 float max;
 float min;
 }energia;
 
-float max(float vector[N]);
-float min(float vector[N]);
-float media(float vector[N]);
+float max(float vector[24]);
+float min(float vector[24]);
+float media(float vector[24]);
 
 int main()
 {
-energia tipoenergia[I];
+energia tipoenergia[18];
 float i;
 int j, k;
 FILE *plectura;
@@ -30,9 +28,9 @@ printf("ERROR AL ABRIR EL FICHERO DE LECTURA");
 return-1;
 }
 
-for (j = 0; j<I; j++)
+for (j = 0; j<18; j++)
 {
-for (k = 0; k<N; k++)
+for (k = 0; k<24; k++)
 {
 fscanf(plectura, "%f,", &tipoenergia[j].anyo[k]);
 }
@@ -50,7 +48,7 @@ fclose(plectura);
 	int operacion1;
 	int operacion2;
 	int mostrar;
-	printf("GENERACIÓN DE ENERGÍAS \n");
+	printf("GENERACIÓN DE ENERGÍAS. \n");
 	printf("Este programa le permitira conocer, comparar, modificar u operar con los datos de la generacion de electricidad,\n mediante todos los tipos de energias en España durante los años de 2021 y 2022 (Gwh)\n\n");
 	do
 	{		
@@ -64,7 +62,7 @@ fclose(plectura);
 			{
 			printf("Indique la energía a consultar: \n 1-Hidráulica \n 2-Turbinación bombeo \n 3-Nuclear \n 4-Carbón \n 5-Fuel + Gas \n 6-Motores diésel \n 7-Turbina de gas \n 8-Turbina de vapor \n 9-Ciclo combinado \n 10-Hidroeólica \n 11-Eólica \n 12-Solar fotovoltaica \n 13-Solar térmica \n 14-Otras renovables \n 15-Congeneración \n 16-Residuos no renovables \n 17-Residuos renovables \n 18-Generación total \n");
 			scanf("%i", &energia1);
-			}while((energia1<1)||(energia1>I));
+			}while((energia1<1)||(energia1>18));
 			energia1 = energia1 - 1;
             
             do
@@ -78,7 +76,7 @@ fclose(plectura);
 			{
 			printf("Elegir el mes y el año el cual mostrar: \n 1- 01/2021 \n 2- 02/2021 \n 3- 03/2021 \n 4- 04/2021 \n 5- 05/2021 \n 6- 06/2021 \n 7- 07/2021 \n 8- 08/2021 \n 9- 09/2021 \n 10- 10/2021 \n 11- 11/2021 \n 12- 12/2021 \n 13- 01/2022 \n 14- 02/2022 \n 15- 03/2022 \n 16- 04/2022 \n 17- 05/2022 \n 18- 06/2022 \n 19- 07/2022 \n 20- 08/2022 \n 21- 09/2022 \n 22- 10/2022 \n 23- 11/2022 \n 24- 12/2022 \n");
 			scanf("%i", &mostrar);
-			} while ((mostrar<1)||(mostrar>N));
+			} while ((mostrar<1)||(mostrar>24));
 			mostrar = mostrar - 1;
 			printf("El dato es %f GWh.\n", tipoenergia[energia1].anyo[mostrar]);
 			}
@@ -182,17 +180,17 @@ fclose(plectura);
 			}
 		    break; 	
 		default:       
-		    printf("Número no válido, vuelva a ejecutar el progama");// no se poner para que vuelva a preguntar lo mismo otra vez.    
+		    printf("Número no válido, vuelva a ejecutar el progama");// no se poner para que vuelva a preguntar lo mismo otra vez. //Hacerlo con un do while como esta anteriormente.    
 	}
 return 0;
 }
 
-float max(float vector[N])
+float max(float vector[24])
 {
 float max = vector[0];
 
 int i;
-for(i = 0; i<N; i++)
+for(i = 0; i<24; i++)
 {
 
 if(max<vector[i])
@@ -208,12 +206,12 @@ max = max;
 return max;
 }
 
-float min(float vector[N])
+float min(float vector[24])
 {
 float min = vector[0];
 
 int i;
-for(i = 0; i<N; i++)
+for(i = 0; i<24; i++)
 {
 
 if(min>vector[i])
@@ -229,17 +227,17 @@ min = min;
 return min;
 }
 
-float media(float vector[N])
+float media(float vector[24])
 {
 float media = 0;
 
 int i;
-for(i = 0; i<N; i++)
+for(i = 0; i<24; i++)
 {
 media = media + vector[i];
 }
 
-media = media/N;
+media = media/24;
 
 return media;
 }
