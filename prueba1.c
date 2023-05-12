@@ -20,7 +20,7 @@ energia tipoenergia[18];
 float i;
 int j, k;
 FILE *plectura;
-plectura = fopen("generacion...", "r"); //Escribir el nombre del fichero que cambiemos
+plectura = fopen("C:/Users/albag/OneDrive/Documentos/GitHub/tw_E10X_2022_2023-bajas_expectativas/generacion_por_tecnologias_21_22.txt", "r");
 
 if (plectura == NULL)
 {
@@ -34,7 +34,7 @@ for (k = 0; k<24; k++)
 {
 fscanf(plectura, "%f,", &tipoenergia[j].anyo[k]);
 }
-fscanf(plectura, "\n");
+fscanf(plectura, "\n\n");
 }
 
 fclose(plectura);
@@ -48,8 +48,11 @@ fclose(plectura);
 	int operacion1;
 	int operacion2;
 	int mostrar;
+	int acabar;
 	printf("GENERACIÓN DE ENERGÍAS. \n");
 	printf("Este programa le permitira conocer, comparar, modificar u operar con los datos de la generacion de electricidad,\n mediante todos los tipos de energias en España durante los años de 2021 y 2022 (Gwh)\n\n");
+do
+{
 	do
 	{		
 	printf("Indique 1 si quiere hacer una consulta individual o 2 si quiere hacer una comparativa \n");
@@ -139,17 +142,17 @@ fclose(plectura);
 				
 				if(operacion2==1)
 				{
-				tipoenergia[energia1].max = max(tipoenergia[energia1].anyo); //preguntar al profe
+				tipoenergia[energia1].max = max(tipoenergia[energia1].anyo);
 				printf("El maximo es %f GWh.\n", tipoenergia[energia1].max);
 				}
 				else if(operacion2==2)
 				{
-				tipoenergia[energia1].min = min(tipoenergia[energia1].anyo); //preguntar tamb
+				tipoenergia[energia1].min = min(tipoenergia[energia1].anyo);
 				printf("El minimo es %f GWh.\n", tipoenergia[energia1].min);
 				}
 				else if(operacion2==3)
 				{
-				tipoenergia[energia1].media = media(tipoenergia[energia1].anyo); //tamb preguntar
+				tipoenergia[energia1].media = media(tipoenergia[energia1].anyo);
 				printf("La media es %f GWh. \n", tipoenergia[energia1].media);
 				}
 			}
@@ -182,6 +185,10 @@ fclose(plectura);
 		default:       
 		    printf("Número no válido, vuelva a ejecutar el progama");// no se poner para que vuelva a preguntar lo mismo otra vez. //Hacerlo con un do while como esta anteriormente.    
 	}
+printf("Seleccione 1 si quiere volver a empezar el programa o cualquier otro numero si quiere acabarlo.\n");
+scanf("%i", &acabar);
+}while(acabar == 1);
+
 return 0;
 }
 
