@@ -160,30 +160,69 @@ do
 		case 2:
 			printf("Indique si quiere comparar 2 o 3 energías \n"); //podemos poner más pero vamos a empezar por 2 o 3 //A mi me parece una barbaridad comparar 3
 
-			printf("Indique si quiere comparar 2 o 3 energías \n"); //podemos poner más pero vamos a empezar por 2 o 3.
-
 			scanf("%i", &comparar);
 			if(comparar==2)
 			{
 				printf("Indique las dos energías a comparar: \n 1-Hidráulica \n 2-Turbinación bombeo \n 3-Nuclear \n 4-Carbón \n 5-Fuel + Gas \n 6-Motores diésel \n 7-Turbina de gas \n 8-Turbina de vapor \n 9-Ciclo combinado \n 10-Hidroeólica \n 11-Eólica \n 12-Solar fotovoltaica \n 13-Solar térmica \n 14-Otras renovables \n 15-Congeneración \n 16-Residuos no renovables \n 17-Residuos renovables \n 18-Generación total \n");
 			    scanf("%i %i", &energiac1, &energiac2);
-			    printf("Indique qué quiere comparar:\t");
-			    //ponemos opciones o que se pueda escribir?
+			    printf("Indique qué quiere comparar, primero seleccione: \n 1-Datos del mismo año \n 2-Datos de años distintos \n ");
+			    scanf("%i", &comparar);
+			    if(comparar==1)
+			    {
+			    	int anyo;
+			    	printf("Indique de qué año quiere hacer la comparativa: \n 1-2021 \n 2-2022");
+			    	scanf("%i", &anyo);
+			    	if(anyo==2021)
+					{
+						
+					}
+					else if(anyo==2022)
+					{
+						
+					}
+				}
+				else if(comparar==2)
+				{
+					printf("Se compararán los datos de los años 2021 y 2022");
+					
+					
+				}
+			    
 			}
 			else if(comparar==3)
 			{
-				printf("Indique las dos energías a comparar: \n 1-Hidráulica \n 2-Turbinación bombeo \n 3-Nuclear \n 4-Carbón \n 5-Fuel + Gas \n 6-Motores diésel \n 7-Turbina de gas \n 8-Turbina de vapor \n 9-Ciclo combinado \n 10-Hidroeólica \n 11-Eólica \n 12-Solar fotovoltaica \n 13-Solar térmica \n 14-Otras renovables \n 15-Congeneración \n 16-Residuos no renovables \n 17-Residuos renovables \n 18-Generación total \n");
+				printf("Indique las tres energías a comparar: \n 1-Hidráulica \n 2-Turbinación bombeo \n 3-Nuclear \n 4-Carbón \n 5-Fuel + Gas \n 6-Motores diésel \n 7-Turbina de gas \n 8-Turbina de vapor \n 9-Ciclo combinado \n 10-Hidroeólica \n 11-Eólica \n 12-Solar fotovoltaica \n 13-Solar térmica \n 14-Otras renovables \n 15-Congeneración \n 16-Residuos no renovables \n 17-Residuos renovables \n 18-Generación total \n");
 			    scanf("%i %i %i", &energiac1, &energiac2);
-			    printf("Indique qué quiere comparar:\t");
-			    //ponemos opciones o que se pueda escribir?
+			    printf("Indique qué quiere comparar, primero seleccione: \n 1-Datos del mismo año \n 2-Datos de años distintos \n ");
+			     scanf("%i", &comparar);
+			    if(comparar==1)
+			    {
+			    	int anyo;
+					printf("Indique de qué año quiere hacer la comparativa: \n 1-2021 \n 2-2022");
+			    	scanf("%i", &anyo);
+			    	if(anyo==2021)
+					{
+						
+					}
+					else if(anyo==2022)
+					{
+						
+					}
+				}
+				else if(comparar==2)
+				{
+					printf("Se compararán los datos de los años 2021 y 2022");
+					
+					
+				}
 			}
 			else
 			{
 				printf("Número no válido, vuelva a ejecutar el progama");
 			}
 		    break; 	
-		default:       
-		    printf("Número no válido, vuelva a ejecutar el progama");// no se poner para que vuelva a preguntar lo mismo otra vez. //Hacerlo con un do while como esta anteriormente.    
+		//default:       
+		  //  printf("Número no válido, vuelva a ejecutar el progama");// no se poner para que vuelva a preguntar lo mismo otra vez. //Hacerlo con un do while como esta anteriormente.    
 	}
 printf("Seleccione 1 si quiere volver a empezar el programa o cualquier otro numero si quiere acabarlo.\n");
 scanf("%i", &acabar);
