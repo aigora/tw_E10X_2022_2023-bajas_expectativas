@@ -21,7 +21,7 @@ float i;
 int j, k;
 FILE *plectura;
 //plectura = fopen("C:/Users/albag/OneDrive/Documentos/GitHub/tw_E10X_2022_2023-bajas_expectativas/generacion_por_tecnologias_21_22.txt", "r");
-plectura = fopen("C:/Users/34689/OneDrive/Documentos/GitHub/tw_E10X_2022_2023-bajas_expectativas/generacion_por_tecnologias_21_22.txt", "r");
+plectura = fopen("generacion_por_tecnologias_21_22.txt", "r");
 if (plectura == NULL)
 {
 printf("ERROR AL ABRIR EL FICHERO DE LECTURA");
@@ -158,13 +158,13 @@ do
 			}
 			break;
 		case 2:
-			printf("Indique si quiere comparar 2 o 3 energías \n"); //podemos poner más pero vamos a empezar por 2 o 3 //A mi me parece una barbaridad comparar 3
+			printf("Indique si quiere comparar 1 o 2 energías \n"); //podemos poner más pero vamos a empezar por 2 o 3 //A mi me parece una barbaridad comparar 3
 
 			scanf("%i", &comparar);
-			if(comparar==2)
+			if(comparar==1)
 			{
-				printf("Indique las dos energías a comparar: \n 1-Hidráulica \n 2-Turbinación bombeo \n 3-Nuclear \n 4-Carbón \n 5-Fuel + Gas \n 6-Motores diésel \n 7-Turbina de gas \n 8-Turbina de vapor \n 9-Ciclo combinado \n 10-Hidroeólica \n 11-Eólica \n 12-Solar fotovoltaica \n 13-Solar térmica \n 14-Otras renovables \n 15-Congeneración \n 16-Residuos no renovables \n 17-Residuos renovables \n 18-Generación total \n");
-			    scanf("%i %i", &energiac1, &energiac2);
+				printf("Indique la energía a comparar: \n 1-Hidráulica \n 2-Turbinación bombeo \n 3-Nuclear \n 4-Carbón \n 5-Fuel + Gas \n 6-Motores diésel \n 7-Turbina de gas \n 8-Turbina de vapor \n 9-Ciclo combinado \n 10-Hidroeólica \n 11-Eólica \n 12-Solar fotovoltaica \n 13-Solar térmica \n 14-Otras renovables \n 15-Congeneración \n 16-Residuos no renovables \n 17-Residuos renovables \n 18-Generación total \n");
+			    scanf("%i", &energiac1);
 			    printf("Indique qué quiere comparar, primero seleccione: \n 1-Datos del mismo año \n 2-Datos de años distintos \n ");
 			    scanf("%i", &comparar);
 			    if(comparar==1)
