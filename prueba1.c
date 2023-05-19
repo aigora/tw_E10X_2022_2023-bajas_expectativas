@@ -19,24 +19,107 @@ float media(float vector[24]);
 int main()
 {
 energia tipoenergia[18];
-float i;
+int i=0;
+float x;
 int j, k;
 FILE *plectura;
 //plectura = fopen("C:/Users/albag/OneDrive/Documentos/GitHub/tw_E10X_2022_2023-bajas_expectativas/generacion_por_tecnologias_21_22.txt", "r");
-plectura = fopen("generacion_por_tecnologias_21_22.txt", "r");
+plectura = fopen("C:/Users/Pc/Documents/GitHub/tw_E10X_2022_2023-bajas_expectativas/generacion_por_tecnologias_21_22_puntos_simplificado.csv", "r");
 if (plectura == NULL)
 {
 printf("ERROR AL ABRIR EL FICHERO DE LECTURA");
 return-1;
 }
 
-for (j = 0; j<18; j++)
+
+fscanf(plectura, "Título,ESTRUCTURA DE LA GENERACIÓN POR TECNOLOGÍAS_01-01-2021_31-12-2022,,,,,,,,,,,,,,,,,,,,,,,\n");
+
+fscanf(plectura, "Sistema eléctrico,Nacional,,,,,,,,,,,,,,,,,,,,,,,\n");
+
+fscanf(plectura, "Magnitudes,GWh,,,,,,,,,,,,,,,,,,,,,,,\n");
+
+fscanf(plectura, " ,,,,,,,,,,,,,,,,,,,,,,,,\n");
+
+fscanf(plectura, "Fecha,1-2021,2-2021,3-2021,4-2021,5-2021,6-2021,7-2021,8-2021,9-2021,10-2021,11-2021,12-2021,1-2022,2-2022,3-2022,4-2022,5-2022,6-2022,7-2022,8-2022,9-2022,10-2022,11-2022,12-2022\n");
+for(j = 0; j<18; j++)
 {
-for (k = 0; k<24; k++)
+if (j == 0)
 {
-fscanf(plectura, "%f,", &tipoenergia[j].anyo[k]);
+fscanf(plectura, "Hidráulica");
 }
-fscanf(plectura, "\n\n");
+else if(j == 1)
+{
+fscanf(plectura, "Turbinación bombeo");
+}
+else if(j == 2)
+{
+fscanf(plectura, "Nuclear");
+}
+else if(j == 3)
+{
+fscanf(plectura, "Carbón");
+}
+else if(j == 4)
+{
+fscanf(plectura, "Fuel + Gas");
+}
+else if(j == 5)
+{
+fscanf(plectura, "Motores diésel");
+}
+else if(j == 6)
+{
+fscanf(plectura, "Turbina de gas");
+}
+else if(j == 7)
+{
+fscanf(plectura, "Turbina de vapor");
+}
+else if(j == 8)
+{
+fscanf(plectura, "Ciclo combinado");
+}
+else if(j == 9)
+{
+fscanf(plectura, "Hidroeólica");
+}
+else if(j == 10)
+{
+fscanf(plectura, "Eólica");
+}
+else if(j == 11)
+{
+fscanf(plectura, "Solar fotovoltaica");
+}
+else if(j == 12)
+{
+fscanf(plectura, "Solar térmica");
+}
+else if(j == 13)
+{
+fscanf(plectura, "Otras renovables");
+}
+else if(j == 14)
+{
+fscanf(plectura, "Cogeneración");
+}
+else if(j == 15)
+{
+fscanf(plectura, "Residuos no renovables");
+}
+else if(j == 16)
+{
+fscanf(plectura, "Residuos renovables");
+}
+else if(j == 17)
+{
+fscanf(plectura, "Generación total");
+}
+for(k=0;k<24;k++)
+{
+fscanf(plectura,",%f", tipoenergia[j].anyo[k]);	
+}	
+fscanf(plectura, "\n");
 }
 
 fclose(plectura);
@@ -69,7 +152,7 @@ do
 		case 1:
 			do
 			{
-			printf("Indique la energía a consultar: \n 1-Hidráulica \n 2-Turbinación bombeo \n 3-Nuclear \n 4-Carbón \n 5-Fuel + Gas \n 6-Motores diésel \n 7-Turbina de gas \n 8-Turbina de vapor \n 9-Ciclo combinado \n 10-Hidroeólica \n 11-Eólica \n 12-Solar fotovoltaica \n 13-Solar térmica \n 14-Otras renovables \n 15-Congeneración \n 16-Residuos no renovables \n 17-Residuos renovables \n 18-Generación total \n");
+			printf("Indique la energía a consultar: \n 1-Hidráulica \n 2-Turbinación bombeo \n 3-Nuclear \n 4-Carbón \n 5-Fuel + Gas \n 6-Motores diésel \n 7-Turbina de gas \n 8-Turbina de vapor \n 9-Ciclo combinado \n 10-Hidroeólica \n 11-Eólica \n 12-Solar fotovoltaica \n 13-Solar térmica \n 14-Otras renovables \n 15-Cogeneración \n 16-Residuos no renovables \n 17-Residuos renovables \n 18-Generación total \n");
 			scanf("%i", &energia1);
 			}while((energia1<1)||(energia1>18));
 			energia1 = energia1 - 1;
