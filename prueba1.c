@@ -93,49 +93,43 @@ do
 			{
 				
 				FILE *pescritura;
-				pescritura=  fopen ("C:/Users/Pc/Documents/GitHub/tw_E10X_2022_2023-bajas_expectativas/generacion_por_tecnologias_21_22_escritura.csv", "w");
+				pescritura=  fopen ("generacion_por_tecnologia_21_22_escritura", "w");
 
 					if (pescritura == NULL)
 					{
 					printf("ERROR AL ABRIR EL FICHERO DE ESCRITURA.\n");
 					return -1;
 					}
-						int energia_modificar; //lo de energia para que es, si la energia ya la hemos seleccionado antes.
-						int anyo; 
-						int mes; 
-						int posicion; //Tamp entiendo para que sirve esto
+					int cambiar;
+					float cambio;
 						do
 						{
-						printf("Se le permitirá cambiar un dato de generacion:\n");
-						scanf("%i", &mes);
-						scanf("%i", &anyo);
-						}while((mes<1)||(mes>12)||(anyo<2021)||(anyo>2022)); //me estoy rayando muchisimo con los de las posiciones con el while ese de despues, en plan wtf, creo que es mas facil con el scanf de arriba, lo hablamos y ponemos la que mejor veamos, ademas creo que no se ejecutaria ninguno de los while siguientes
-						
-						while ((anyo!=1)&& (anyo!=2)) //aunq con esto evite que se joda el programa si no mete uno de esos dos datos se jode todo en cuanto nos metan un char
-						{
-						printf("¿A qué año pertenece esa generacion? 1- si es del 2021, 2- si es del 2022\n");
-						scanf("%i", &anyo);
-						}
-							if(anyo==1)
-							{
-								posicion=posicion;
-							}
+						printf("Se le permitirá cambiar un dato de generacion: \n 1- 01/2021 \n 2- 02/2021 \n 3- 03/2021 \n 4- 04/2021 \n 5- 05/2021 \n 6- 06/2021 \n 7- 07/2021 \n 8- 08/2021 \n 9- 09/2021 \n 10- 10/2021 \n 11- 11/2021 \n 12- 12/2021 \n 13- 01/2022 \n 14- 02/2022 \n 15- 03/2022 \n 16- 04/2022 \n 17- 05/2022 \n 18- 06/2022 \n 19- 07/2022 \n 20- 08/2022 \n 21- 09/2022 \n 22- 10/2022 \n 23- 11/2022 \n 24- 12/2022 \n");
+						scanf("%i", &cambiar);
+						}while((cambiar<1)||(cambiar>24)); 
 							
-							if(anyo==2)
-							{
-								posicion=12;
-							}
-						
-						while ((mes!=1)&&(mes!=2)&&(mes!=3)&&(mes!=4)&&(mes!=5)&&(mes!=6)&&(mes!=7)&&(mes!=8)&&(mes!=9)&&(mes!=10)&&(mes!=11)&&(mes!=12)) //seguro que hay una forma mas facil de ponerlo pero no se me ocurre	
+					cambiar = cambiar - 1;
+					printf("El actual es de %f Gwh.\n Escribe el numero por el que desea cambiarlo.\n", tipoenergia[energia1].anyo[cambiar]);
+					scanf("%f", &cambio);
+					tipoenergia[energia1].anyo[cambiar] = cambio;
+					
+					for(j = 0; j<18; j++)
+					{
+					for(k = 0; k<24; k++)
+					{
+						fprintf(pescritura, "%f", tipoenergia[j].anyo[k]);
+						if(k!=23)
 						{
-						printf("Escriba el numero del mes al que corresponda el dato a modificar:\n");
-						scanf("%i", &mes);
+						fprintf(pescritura, ", ");
 						}
-						posicion=posicion+mes; //ahora que ya tenemos la posicion solo hay que ir al vector de la energia (energia_modificar) en la posición (posicion) que sea y decirle que esciba algo y ponerlo -aurora
+						else
+						{
+						fprintf(pescritura, "\n\n");
+						}
+					}
+					}
 					
-				
-					
-					//aquí también hay que meter algo relacionado con los ficheros
+				fclose(pescritura);
 				
 			}
 			else if (operacion1==3)
