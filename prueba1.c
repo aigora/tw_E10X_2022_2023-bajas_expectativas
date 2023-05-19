@@ -8,8 +8,9 @@ float anyo[24];
 float media;
 float max;
 float min;
+float porcentajemes;
+float porcentajemedia;
 }energia;
-//Hola buenos dias
 
 float max(float vector[24]);
 float min(float vector[24]);
@@ -48,8 +49,10 @@ fclose(plectura);
 	int comparar;
 	int operacion1;
 	int operacion2;
+	int operacion3;
 	int mostrar;
 	int acabar;
+	int porcentmes;
 	float mes1;
 	float mes2;
 	printf("GENERACIÓN DE ENERGÍAS. \n");
@@ -139,9 +142,9 @@ do
 			{
 				do
 				{
-				printf("Indique que tipo de operación estadística desea realizar: \n 1-Indicar el máximo \n 2-Indicar el minímo \n 3-Indicar la media \n");
+				printf("Indique que tipo de operación estadística desea realizar: \n 1-Indicar el máximo \n 2-Indicar el minímo \n 3-Indicar la media \n 4-Porcentaje \n");
 				scanf("%i", &operacion2);
-				}while((operacion2<1)||(operacion2>3));
+				}while((operacion2<1)||(operacion2>4));
 				
 				if(operacion2==1)
 				{
@@ -157,6 +160,53 @@ do
 				{
 				tipoenergia[energia1].media = media(tipoenergia[energia1].anyo);
 				printf("La media es %f GWh. \n", tipoenergia[energia1].media);
+				}
+				else if(operacion2==4)
+				{
+				do
+				{
+				printf("Indica si lo quieres: \n 1-Mes y año \n 2-Media \n");
+				scanf("%i", &operacion3);				
+				}while((operacion3<1)||(operacion3>2));
+					if(operacion3==1)
+					{
+						do
+						{
+						printf("Elige el mes y año: \n 1- 01/2021 \n 2- 02/2021 \n 3- 03/2021 \n 4- 04/2021 \n 5- 05/2021 \n 6- 06/2021 \n 7- 07/2021 \n 8- 08/2021 \n 9- 09/2021 \n 10- 10/2021 \n 11- 11/2021 \n 12- 12/2021 \n 13- 01/2022 \n 14- 02/2022 \n 15- 03/2022 \n 16- 04/2022 \n 17- 05/2022 \n 18- 06/2022 \n 19- 07/2022 \n 20- 08/2022 \n 21- 09/2022 \n 22- 10/2022 \n 23- 11/2022 \n 24- 12/2022 \n");
+						scanf("%i", &porcentmes);					
+						}while((porcentmes<1)||(porcentmes)>24);
+						porcentmes = porcentmes - 1;
+						float total = 0;
+					
+						for(j = 0; j<24; j++)
+						{
+							total = total + tipoenergia[j].anyo[porcentmes];
+						}
+						
+						tipoenergia[energia1].porcentajemes = tipoenergia[energia1].anyo[porcentmes]/total*100;
+						
+						printf("El porcentaje es del %f porciento \n", tipoenergia[energia1].porcentajemes);
+					}
+					else if(operacion3==2)
+					{
+						float medias[18];
+						
+						for(j = 0; j<18; j++)
+						{
+						medias[j] = media(tipoenergia[j].anyo);
+						}
+						
+						float total = 0;
+						
+						for (j = 0; j<18; j++)
+						{
+						total = total + medias[j];
+						}
+						
+						tipoenergia[energia1].porcentajemedia = medias[energia1]/total*100;
+						
+						printf("El porcentaje es del %f porciento \n", tipoenergia[energia1].porcentajemedia);
+					}
 				}
 			}
 			break;
@@ -209,7 +259,7 @@ do
 			    	scanf("%i", &anyo);
 			    	if(anyo==2021)
 					{
-						
+					
 					}
 					else if(anyo==2022)
 					{
