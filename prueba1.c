@@ -49,6 +49,8 @@ fclose(plectura);
 	int operacion2;
 	int mostrar;
 	int acabar;
+	float mes1;
+	float mes2;
 	printf("GENERACIÓN DE ENERGÍAS. \n");
 	printf("Este programa le permitira conocer, comparar, modificar u operar con los datos de la generacion de electricidad,\n mediante todos los tipos de energias en España durante los años de 2021 y 2022 (Gwh)\n\n");
 do
@@ -170,15 +172,19 @@ do
 			    if(comparar==1)
 			    {
 			    	int anyo;
-			    	printf("Indique de qué año quiere hacer la comparativa: \n 1-2021 \n 2-2022");
+			    	printf("Indique de qué año quiere hacer la comparativa: \n 1-2021 \n 2-2022 \n");
 			    	scanf("%i", &anyo);
-			    	if(anyo==2021)
+			    	if(anyo==1)
 					{
-						
+					printf("Elige los meses que comparar: \n 1- 01/2021 \n 2- 02/2021 \n 3- 03/2021 \n 4- 04/2021 \n 5- 05/2021 \n 6- 06/2021 \n 7- 07/2021 \n 8- 08/2021 \n 9- 09/2021 \n 10- 10/2021 \n 11- 11/2021 \n 12- 12/2021 \n");	
+					scanf("%f %f", &mes1, &mes2);
+					printf("Los datos son %f y %f GWh.\n", mes1, mes2);
 					}
-					else if(anyo==2022)
+					else if(anyo==2)
 					{
-						
+					printf("Elegir el mes que mostrar: \n 1- 01/2022 \n 2- 02/2022 \n 3- 03/2022 \n 4- 04/2022 \n 5- 05/2022 \n 6- 06/2022 \n 7- 07/2022 \n 8- 08/2022 \n 9- 09/2022 \n 10- 10/2022 \n 11- 11/2022 \n 12- 12/2022 \n");	
+					scanf("%f %f", &mes1, &mes2);
+					printf("Los datos son %f y %f GWh.\n", mes1, mes2);
 					}
 				}
 				else if(comparar==2)
