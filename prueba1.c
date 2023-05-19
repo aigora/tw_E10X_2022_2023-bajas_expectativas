@@ -9,6 +9,7 @@ float media;
 float max;
 float min;
 }energia;
+//Hola buenos dias
 
 float max(float vector[24]);
 float min(float vector[24]);
