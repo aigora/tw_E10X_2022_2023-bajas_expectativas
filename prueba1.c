@@ -24,7 +24,7 @@ float x;
 int j, k;
 FILE *plectura;
 //plectura = fopen("C:/Users/albag/OneDrive/Documentos/GitHub/tw_E10X_2022_2023-bajas_expectativas/generacion_por_tecnologias_21_22.txt", "r");
-plectura = fopen("C:/Users/Pc/Documents/GitHub/tw_E10X_2022_2023-bajas_expectativas/generacion_por_tecnologias_21_22_puntos_simplificado.csv", "r");
+plectura = fopen("C:/Users/albag/OneDrive/Documentos/GitHub/tw_E10X_2022_2023-bajas_expectativas/generacion_por_tecnologias_21_22_puntos_simplificado.csv", "r");
 if (plectura == NULL)
 {
 printf("ERROR AL ABRIR EL FICHERO DE LECTURA");
@@ -41,6 +41,7 @@ fscanf(plectura, "Magnitudes,GWh,,,,,,,,,,,,,,,,,,,,,,,\n");
 fscanf(plectura, " ,,,,,,,,,,,,,,,,,,,,,,,,\n");
 
 fscanf(plectura, "Fecha,1-2021,2-2021,3-2021,4-2021,5-2021,6-2021,7-2021,8-2021,9-2021,10-2021,11-2021,12-2021,1-2022,2-2022,3-2022,4-2022,5-2022,6-2022,7-2022,8-2022,9-2022,10-2022,11-2022,12-2022\n");
+
 for(j = 0; j<18; j++)
 {
 if (j == 0)
@@ -117,7 +118,7 @@ fscanf(plectura, "Generación total");
 }
 for(k=0;k<24;k++)
 {
-fscanf(plectura,",%f", tipoenergia[j].anyo[k]);	
+fscanf(plectura,",%f", &tipoenergia[j].anyo[k]);	
 }	
 fscanf(plectura, "\n");
 }
@@ -196,20 +197,96 @@ do
 					scanf("%f", &cambio);
 					tipoenergia[energia1].anyo[cambiar] = cambio;
 					
+					fprintf(pescritura, "Título,ESTRUCTURA DE LA GENERACIÓN POR TECNOLOGÍAS_01-01-2021_31-12-2022,,,,,,,,,,,,,,,,,,,,,,,\n");
+
+					fprintf(pescritura, "Sistema eléctrico,Nacional,,,,,,,,,,,,,,,,,,,,,,,\n");
+
+					fprintf(pescritura, "Magnitudes,GWh,,,,,,,,,,,,,,,,,,,,,,,\n");
+
+					fprintf(pescritura, " ,,,,,,,,,,,,,,,,,,,,,,,,\n");
+
+					fprintf(pescritura, "Fecha,1-2021,2-2021,3-2021,4-2021,5-2021,6-2021,7-2021,8-2021,9-2021,10-2021,11-2021,12-2021,1-2022,2-2022,3-2022,4-2022,5-2022,6-2022,7-2022,8-2022,9-2022,10-2022,11-2022,12-2022\n");
+
+					
 					for(j = 0; j<18; j++)
 					{
+						if (j == 0)
+						{
+						fprintf(pescritura, "Hidráulica");
+						}
+						else if(j == 1)
+						{
+						fprintf(pescritura, "Turbinación bombeo");
+						}
+						else if(j == 2)
+						{
+						fprintf(pescritura, "Nuclear");
+						}
+						else if(j == 3)
+						{
+						fprintf(pescritura, "Carbón");
+						}
+						else if(j == 4)
+						{
+						fprintf(pescritura, "Fuel + Gas");
+						}
+						else if(j == 5)
+						{
+						fprintf(pescritura, "Motores diésel");
+						}
+						else if(j == 6)
+						{
+						fprintf(pescritura, "Turbina de gas");
+						}
+						else if(j == 7)
+						{
+						fprintf(pescritura, "Turbina de vapor");
+						}
+						else if(j == 8)
+						{
+						fprintf(pescritura, "Ciclo combinado");
+						}
+						else if(j == 9)
+						{
+						fprintf(pescritura, "Hidroeólica");
+						}
+						else if(j == 10)
+						{
+						fprintf(pescritura, "Eólica");
+						}
+						else if(j == 11)
+						{
+						fprintf(pescritura, "Solar fotovoltaica");
+						}
+						else if(j == 12)
+						{
+						fprintf(pescritura, "Solar térmica");
+						}
+						else if(j == 13)
+						{
+						fprintf(pescritura, "Otras renovables");
+						}
+						else if(j == 14)
+						{
+						fprintf(pescritura, "Cogeneración");
+						}
+						else if(j == 15)
+						{
+						fprintf(pescritura, "Residuos no renovables");
+						}
+						else if(j == 16)
+						{
+						fprintf(pescritura, "Residuos renovables");
+						}
+						else if(j == 17)
+						{
+						fprintf(pescritura, "Generación total");
+						}
 					for(k = 0; k<24; k++)
 					{
-						fprintf(pescritura, "%f", tipoenergia[j].anyo[k]);
-						if(k!=23)
-						{
-						fprintf(pescritura, ", ");
-						}
-						else
-						{
-						fprintf(pescritura, "\n\n");
-						}
+					fprintf(pescritura, ",%f", tipoenergia[j].anyo[k]);
 					}
+					fprintf(pescritura, "\n");
 					}
 					
 				fclose(pescritura);
@@ -219,7 +296,7 @@ do
 			{
 				do
 				{
-				printf("Indique que tipo de operación estadística desea realizar: \n 1-Indicar el máximo \n 2-Indicar el minímo \n 3-Indicar la media \n 4-Porcentaje \n");
+				printf("Indique que tipo de operación estadística desea realizar: \n 1-Indicar el máximo \n 2-Indicar el minímo \n 3-Indicar la media \n 4-Indicar porcentaje \n");
 				scanf("%i", &operacion2);
 				}while((operacion2<1)||(operacion2>4));
 				
