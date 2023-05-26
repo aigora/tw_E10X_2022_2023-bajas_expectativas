@@ -24,7 +24,7 @@ float x;
 int j, k;
 FILE *plectura;
 //plectura = fopen("C:/Users/albag/OneDrive/Documentos/GitHub/tw_E10X_2022_2023-bajas_expectativas/generacion_por_tecnologias_21_22.txt", "r");
-plectura = fopen("C:/Users/albag/OneDrive/Documentos/GitHub/tw_E10X_2022_2023-bajas_expectativas/generacion_por_tecnologias_21_22_puntos_simplificado.csv", "r");
+plectura = fopen("generacion_por_tecnologias_21_22.txt", "r");
 if (plectura == NULL)
 {
 printf("ERROR AL ABRIR EL FICHERO DE LECTURA");
@@ -365,33 +365,69 @@ do
 			}
 			break;
 		case 2:
-			printf("Indique si quiere comparar 1 o 2 energías \n"); //podemos poner más pero vamos a empezar por 2 o 3 //A mi me parece una barbaridad comparar 3
-
+			do
+			{
+			printf("Indique que quiere comparar:\n 1-En una misma energia.\n 2-Dos energías diferentes.\n");
 			scanf("%i", &comparar);
+			}while((comparar<1)||(comparar>2));
+			
 			if(comparar==1)
 			{
-				printf("Indique la energía a comparar: \n 1-Hidráulica \n 2-Turbinación bombeo \n 3-Nuclear \n 4-Carbón \n 5-Fuel + Gas \n 6-Motores diésel \n 7-Turbina de gas \n 8-Turbina de vapor \n 9-Ciclo combinado \n 10-Hidroeólica \n 11-Eólica \n 12-Solar fotovoltaica \n 13-Solar térmica \n 14-Otras renovables \n 15-Congeneración \n 16-Residuos no renovables \n 17-Residuos renovables \n 18-Generación total \n");
-			    scanf("%i", &energiac1);
-			    printf("Indique qué quiere comparar, primero seleccione: \n 1-Datos del mismo año \n 2-Datos de años distintos \n ");
-			    scanf("%i", &comparar);
-			    if(comparar==1)
-			    {
-			    	int anyo;
-			    	printf("Indique de qué año quiere hacer la comparativa: \n 1-2021 \n 2-2022 \n");
-			    	scanf("%i", &anyo);
-			    	if(anyo==1)
-					{
-					printf("Elige los meses que comparar: \n 1- 01/2021 \n 2- 02/2021 \n 3- 03/2021 \n 4- 04/2021 \n 5- 05/2021 \n 6- 06/2021 \n 7- 07/2021 \n 8- 08/2021 \n 9- 09/2021 \n 10- 10/2021 \n 11- 11/2021 \n 12- 12/2021 \n");	
-					scanf("%f %f", &mes1, &mes2);
-					printf("Los datos son %f y %f GWh.\n", mes1, mes2);
-					}
-					else if(anyo==2)
-					{
-					printf("Elegir el mes que mostrar: \n 1- 01/2022 \n 2- 02/2022 \n 3- 03/2022 \n 4- 04/2022 \n 5- 05/2022 \n 6- 06/2022 \n 7- 07/2022 \n 8- 08/2022 \n 9- 09/2022 \n 10- 10/2022 \n 11- 11/2022 \n 12- 12/2022 \n");	
-					scanf("%f %f", &mes1, &mes2);
-					printf("Los datos son %f y %f GWh.\n", mes1, mes2);
-					}
-				}
+			do
+			{
+			printf("Indique la energía a comparar: \n 1-Hidráulica \n 2-Turbinación bombeo \n 3-Nuclear \n 4-Carbón \n 5-Fuel + Gas \n 6-Motores diésel \n 7-Turbina de gas \n 8-Turbina de vapor \n 9-Ciclo combinado \n 10-Hidroeólica \n 11-Eólica \n 12-Solar fotovoltaica \n 13-Solar térmica \n 14-Otras renovables \n 15-Congeneración \n 16-Residuos no renovables \n 17-Residuos renovables \n 18-Generación total \n");
+		    scanf("%i", &energiac1);			
+			}while((energiac1<1)||(energiac1>18));
+			
+		    energiac1=energiac1 - 1;
+		    int fechac1, fechac2;
+		    
+			do
+			{
+			printf("Indique las fechas que desea comparar:\n 1- 01/2021 \n 2- 02/2021 \n 3- 03/2021 \n 4- 04/2021 \n 5- 05/2021 \n 6- 06/2021 \n 7- 07/2021 \n 8- 08/2021 \n 9- 09/2021 \n 10- 10/2021 \n 11- 11/2021 \n 12- 12/2021 \n 13- 01/2022 \n 14- 02/2022 \n 15- 03/2022 \n 16- 04/2022 \n 17- 05/2022 \n 18- 06/2022 \n 19- 07/2022 \n 20- 08/2022 \n 21- 09/2022 \n 22- 10/2022 \n 23- 11/2022 \n 24- 12/2022 \n");
+			scanf("%i", &fechac1);
+			scanf("%i", &fechac2);			
+			}while((fechac1<1)||(fechac1>24)||(fechac2<1)||(fechac2>24)||(fechac1==fechac2));
+			
+			fechac1=fechac1-1;
+			fechac2=fechac2-1;
+			
+			comparar2(tipoenergia[energiac1].anyo[fechac1], tipoenergia[energiac1].anyo[fechac2]);
+
+			}
+			else if(comparar==2)
+			{
+			do 
+			{
+			printf("Indique las energias a comparar:\n 1-Hidráulica \n 2-Turbinación bombeo \n 3-Nuclear \n 4-Carbón \n 5-Fuel + Gas \n 6-Motores diésel \n 7-Turbina de gas \n 8-Turbina de vapor \n 9-Ciclo combinado \n 10-Hidroeólica \n 11-Eólica \n 12-Solar fotovoltaica \n 13-Solar térmica \n 14-Otras renovables \n 15-Congeneración \n 16-Residuos no renovables \n 17-Residuos renovables \n 18-Generación total \n");
+			scanf("%i", &energiac1);
+			scanf("%i", &energiac2);
+			}while((energiac1<1)||(energiac1>18)||(energiac2<1)||(energiac2>18)||(energiac1==energiac2));	
+			
+			energiac1=energiac1-1;
+			energiac2=energiac2-1;
+			
+			int comp;
+			
+			do
+			{
+			printf("Indique si quiere:\n 1-Comparar de dos energías diferentes la misma fecha.\n 2-Comparar de dos energías diferentes la media.\n");
+			scanf("%i", &comp);
+			}while((comp<1)||(comp>2));
+			
+			if(comp==1)
+			{
+			int fecha;
+			do
+			{
+			printf("Indique la fecha que desea comparar:\n 1- 01/2021 \n 2- 02/2021 \n 3- 03/2021 \n 4- 04/2021 \n 5- 05/2021 \n 6- 06/2021 \n 7- 07/2021 \n 8- 08/2021 \n 9- 09/2021 \n 10- 10/2021 \n 11- 11/2021 \n 12- 12/2021 \n 13- 01/2022 \n 14- 02/2022 \n 15- 03/2022 \n 16- 04/2022 \n 17- 05/2022 \n 18- 06/2022 \n 19- 07/2022 \n 20- 08/2022 \n 21- 09/2022 \n 22- 10/2022 \n 23- 11/2022 \n 24- 12/2022 \n");
+			scanf("%i", &fecha);			
+			}while((fecha<1)||(fecha>24));
+			
+			fecha = fecha - 1;
+			
+			comparar2(tipoenergia[energiac1].anyo[fecha], tipoenergia[energiac2].anyo[fecha]);
+			}
 				else if(comparar==2)
 				{
 					printf("Se compararán los datos de los años 2021 y 2022");
