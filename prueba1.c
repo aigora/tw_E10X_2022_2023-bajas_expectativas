@@ -15,6 +15,7 @@ float porcentajemedia;
 float max(float vector[24]);
 float min(float vector[24]);
 float media(float vector[24]);
+void comparar2(float comp1, float comp2);
 
 int main()
 {
@@ -428,12 +429,13 @@ do
 			
 			comparar2(tipoenergia[energiac1].anyo[fecha], tipoenergia[energiac2].anyo[fecha]);
 			}
-				else if(comparar==2)
-				{
-					printf("Se compararán los datos de los años 2021 y 2022");
-					
-					
-				}
+				else if(comp==2)
+			{
+			tipoenergia[energiac1].media=media(tipoenergia[energiac1].anyo);
+			tipoenergia[energiac2].media=media(tipoenergia[energiac2].anyo);
+			
+			comparar2(tipoenergia[energiac1].media, tipoenergia[energiac2].media);
+			}
 			    
 			}
 			else if(comparar==3)
@@ -533,5 +535,16 @@ media = media + vector[i];
 media = media/24;
 
 return media;
+}
+void comparar2(float comp1, float comp2)
+{
+if(comp1>comp2)
+{
+printf("La primera opción, %f, es mayor que la segunda, %f.\n", comp1, comp2);
+}
+else if(comp2>comp1)
+{
+printf("La segunda opción, %f, es mayor que la primera, %f.\n", comp2, comp1);
+}
 }
 
