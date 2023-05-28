@@ -24,8 +24,8 @@ int i=0;
 float x;
 int j, k;
 FILE *plectura;
-//plectura = fopen("C:/Users/albag/OneDrive/Documentos/GitHub/tw_E10X_2022_2023-bajas_expectativas/generacion_por_tecnologias_21_22.txt", "r");
-plectura = fopen("generacion_por_tecnologias_21_22_puntos_simplificado.csv", "r");
+
+plectura = fopen("C:/Users/Pc/Documents/GitHub/tw_E10X_2022_2023-bajas_expectativas/generacion_por_tecnologias_21_22_puntos_simplificado.csv", "r");
 if (plectura == NULL)
 {
 printf("ERROR AL ABRIR EL FICHERO DE LECTURA");
@@ -178,7 +178,7 @@ do
 			{
 				
 				FILE *pescritura;
-				pescritura=  fopen ("generacion_por_tecnologia_21_22_escritura", "w");
+				pescritura=  fopen ("C:/Users/Pc/Documents/GitHub/tw_E10X_2022_2023-bajas_expectativas/generacion_por_tecnologia_21_22_escritura", "w");
 
 					if (pescritura == NULL)
 					{
@@ -297,9 +297,9 @@ do
 			{
 				do
 				{
-				printf("Indique que tipo de operación estadística desea realizar: \n 1-Indicar el máximo \n 2-Indicar el minímo \n 3-Indicar la media \n 4-Indicar porcentaje \n");
+				printf("Indique que tipo de operación estadística desea realizar: \n 1-Indicar el máximo \n 2-Indicar el minímo \n 3-Indicar la media \n 4-Indicar porcentaje \n 5-Indicar precio de la energia que se genera.\n");
 				scanf("%i", &operacion2);
-				}while((operacion2<1)||(operacion2>4));
+				}while((operacion2<1)||(operacion2>5));
 				
 				if(operacion2==1)
 				{
@@ -363,6 +363,22 @@ do
 						printf("El porcentaje es del %f porciento \n", tipoenergia[energia1].porcentajemedia);
 					}
 				}
+				else if (operacion2==5)
+				{
+					int an;
+					
+					do
+					{
+					printf("Introduce el mes y el año:  \n 1- 01/2021 \n 2- 02/2021 \n 3- 03/2021 \n 4- 04/2021 \n 5- 05/2021 \n 6- 06/2021 \n 7- 07/2021 \n 8- 08/2021 \n 9- 09/2021 \n 10- 10/2021 \n 11- 11/2021 \n 12- 12/2021 \n 13- 01/2022 \n 14- 02/2022 \n 15- 03/2022 \n 16- 04/2022 \n 17- 05/2022 \n 18- 06/2022 \n 19- 07/2022 \n 20- 08/2022 \n 21- 09/2022 \n 22- 10/2022 \n 23- 11/2022 \n 24- 12/2022 \n");
+					scanf("%i", &an);
+					}while((an<1)||(an>24));
+					an = an - 1;
+					
+					float energiamgh= tipoenergia[energia1].anyo[an]*1000;
+					float precio = energiamgh*86;
+					
+					printf("Como el precio del Mgh es de 86 euros aprox, serían %f euros.\n", precio);
+				}				
 			}
 			break;
 		case 2:
