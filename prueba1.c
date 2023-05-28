@@ -25,7 +25,7 @@ float x;
 int j, k;
 FILE *plectura;
 //plectura = fopen("C:/Users/albag/OneDrive/Documentos/GitHub/tw_E10X_2022_2023-bajas_expectativas/generacion_por_tecnologias_21_22.txt", "r");
-plectura = fopen("C:/Users/albag/OneDrive/Documentos/GitHub/tw_E10X_2022_2023-bajas_expectativas/generacion_por_tecnologias_21_22_puntos_simplificado.csv", "r");
+plectura = fopen("generacion_por_tecnologias_21_22_puntos_simplificado.csv", "r");
 if (plectura == NULL)
 {
 printf("ERROR AL ABRIR EL FICHERO DE LECTURA");
