@@ -178,7 +178,7 @@ do
 			{
 				
 				FILE *pescritura;
-				pescritura=  fopen ("C:/Users/Pc/Documents/GitHub/tw_E10X_2022_2023-bajas_expectativas/generacion_por_tecnologia_21_22_escritura", "w");
+				pescritura=  fopen ("generacion_por_tecnologia_21_22_escritura", "w");
 
 					if (pescritura == NULL)
 					{
