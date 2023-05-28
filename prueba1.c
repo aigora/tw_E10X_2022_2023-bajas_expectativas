@@ -429,7 +429,7 @@ do
 			
 			comparar2(tipoenergia[energiac1].anyo[fecha], tipoenergia[energiac2].anyo[fecha]);
 			}
-				else if(comp==2)
+			else if(comp==2)
 			{
 			tipoenergia[energiac1].media=media(tipoenergia[energiac1].anyo);
 			tipoenergia[energiac2].media=media(tipoenergia[energiac2].anyo);
