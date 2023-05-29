@@ -7,7 +7,7 @@ Este programa le permitira conocer, comparar, modificar u operar con los datos d
 Carla María Perez Alfonso --> Carlamp04 // 
 Eva Sancho Pavón --> evasancho19 // 
 Pilar Aurora Miguel Palacios --> AuroraMiguelPalacios // 
-Alba Garrido Caballero --> albagarrid // 
+Alba Garrido Caballero --> albagarrid 
 
 ## Objetivos del trabajo
 
