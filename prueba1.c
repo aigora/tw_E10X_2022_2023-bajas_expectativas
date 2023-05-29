@@ -141,6 +141,7 @@ fclose(plectura);
 	float mes1;
 	float mes2;
 	printf("GENERACIÓN DE ENERGÍAS. \n");
+	printf("Por: \n Carla María Perez Alfonso \n Eva Sancho Pavón \n Pilar Aurora Miguel Palacios \n Alba Garrido Caballero \n");
 	printf("Este programa le permitira conocer, comparar, modificar u operar con los datos de la generacion de electricidad,\n mediante todos los tipos de energias en España durante los años de 2021 y 2022 (Gwh)\n\n");
 do
 {
